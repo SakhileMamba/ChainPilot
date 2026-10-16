@@ -16,7 +16,7 @@ ALLOWED_ORIGINS = ""
 # Orders and issued licenses. Create with:  npx wrangler kv namespace create DB --config server/wrangler.toml
 [[kv_namespaces]]
 binding = "DB"
-id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+id = "82a603e2a2f346a78fc46ec389200afe"
 
 # At most 5 new orders per minute from one IP address.
 [[ratelimits]]

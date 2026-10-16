@@ -3,8 +3,8 @@
   "id": "chainpilot",
   "tagline": "A compounding autopilot for Aviator",
   "publisher": "Sakhile Mamba",
-  "siteUrl": "https://sakhilemamba.github.io/chainpilot/",
-  "apiUrl": "",
+  "siteUrl": "https://sakhilemamba.github.io/ChainPilot/",
+  "apiUrl": "https://chainpilot-api.sakhilemamba.workers.dev",
   "game": {
     "name": "Aviator on mulasport.com",
     "url": "https://www.mulasport.com/?gameID=aviator-spribe&mode=real",
@@ -25,8 +25,8 @@
     { "id": "quarter", "name": "3 months", "days": 90, "price": 450 }
   ],
   "support": {
-    "whatsapp": "",
-    "email": ""
+    "whatsapp": "+26878072127",
+    "email": "aviatorchainpilot@gmail.com"
   },
   "manualPayment": {
     "momoNumber": "",
