@@ -1,0 +1,43 @@
+<!--{
+  "id": "download",
+  "title": "Download for Windows",
+  "description": "Download ChainPilot for Windows 10 and 11. Free simulator, dry run and practice mode; live betting with a subscription."
+}-->
+<section class="wrap section narrow">
+  <h1>Download {{name}}</h1>
+  <p class="lead">For Windows 10 and 11 (64-bit). The simulator, dry run and practice mode are free; live betting needs a subscription.</p>
+  {{{downloadCard}}}
+
+  <h2>What you need</h2>
+  <ul>
+    <li>A Windows 10 or 11 computer (64-bit).</li>
+    <li>Google Chrome or Microsoft Edge (Edge comes with Windows).</li>
+    <li>An internet connection and your own account at {{game.name}}.</li>
+  </ul>
+
+  <h2>Install</h2>
+  <ol class="install-steps">
+    <li>Open the downloaded file, <code>{{installerName}}</code>.</li>
+    <li>
+      Windows may show <strong>"Windows protected your PC"</strong> because the installer is new and not yet widely
+      downloaded. Click <strong>More info</strong>, then <strong>Run anyway</strong>. Check the file's SHA-256 above if you
+      want to be sure it's ours.
+    </li>
+    <li>Follow the installer. It installs for your Windows user only and doesn't need administrator rights.</li>
+    <li>Open <strong>{{name}}</strong> from the Start menu or the desktop.</li>
+  </ol>
+  <p>
+    Two windows open: the <strong>control panel</strong>, and a small black <strong>log window</strong> (minimised). Keep the log
+    window open while you use {{name}}. Closing the control panel quits the app.
+  </p>
+
+  <h2>Updating</h2>
+  <p>The app tells you when a new version is out. Download it here and run it over the old one; your settings, logs and subscription stay.</p>
+
+  <h2>Uninstalling</h2>
+  <p>
+    Windows <strong>Settings → Apps → Installed apps → {{name}} → Uninstall</strong>. Your data (settings, bet logs, the casino
+    login of the game window, and your license) stays in <code>%LOCALAPPDATA%\{{name}}</code> in case you reinstall; delete
+    that folder to remove it.
+  </p>
+</section>

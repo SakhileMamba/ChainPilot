@@ -1,0 +1,58 @@
+<!--{
+  "id": "subscribe",
+  "title": "Subscribe with MTN MoMo",
+  "description": "Subscribe to ChainPilot with MTN Mobile Money and unlock live betting.",
+  "scripts": "<script type=\"module\" src=\"assets/subscribe.js\"></script>"
+}-->
+<section class="wrap section narrow">
+  <h1>Subscribe with MTN MoMo</h1>
+  <p class="lead">
+    The quickest way is inside the app: <strong>Subscription → Pay with MoMo</strong>, and it activates by itself. You can
+    also pay here and paste the key into the app.
+  </p>
+
+  <div class="card pay-card" id="online-pay">
+    <h2>Pay online</h2>
+    <form id="pay-form" novalidate>
+      <fieldset class="plan-picker">
+        <legend class="field-label">Plan</legend>
+        <div id="plan-options">{{{planOptions}}}</div>
+      </fieldset>
+      <label class="field">
+        <span class="field-label">Your machine ID</span>
+        <span class="input"><input name="machineId" autocomplete="off" spellcheck="false" placeholder="XXXX-XXXX-XXXX-XXXX" /></span>
+        <small class="field-help">{{name}} shows it under Subscription. Your subscription works on that computer.</small>
+      </label>
+      <label class="field">
+        <span class="field-label">Your MoMo number</span>
+        <span class="input"><em class="pre">+{{country.dialCode}}</em><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="{{country.example}}" /></span>
+        <small class="field-help">You'll get a prompt on this phone. Approve it with your MoMo PIN.</small>
+      </label>
+      <button class="btn primary big" type="submit">Pay with MoMo</button>
+    </form>
+    <div class="order-box" id="order-box" role="status" aria-live="polite" hidden></div>
+  </div>
+
+  <div class="card" id="offline-pay" hidden>
+    <h2>Online payment isn't available right now</h2>
+    <p>Please try again later, or contact us and we'll help you subscribe.</p>
+    {{{contactLinks}}}
+  </div>
+
+  <div class="card" id="restore-card">
+    <h2>Lost your key?</h2>
+    <p>Enter your machine ID to see the keys issued to that computer. In the app, <strong>Restore purchase</strong> does the same.</p>
+    <form id="restore-form" class="inline-form" novalidate>
+      <span class="input"><input name="machineId" autocomplete="off" spellcheck="false" placeholder="XXXX-XXXX-XXXX-XXXX" aria-label="Machine ID" /></span>
+      <button class="btn" type="submit">Find my keys</button>
+    </form>
+    <div id="restore-box" role="status" aria-live="polite"></div>
+  </div>
+
+  {{{manualPayment}}}
+
+  <p class="fineprint">
+    By subscribing you accept the <a href="terms.html">terms of sale and use</a>. Subscriptions are for one computer and are
+    not renewed automatically: you pay again when you want more time.
+  </p>
+</section>

@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ChainPilot</title>
+    <link rel="icon" href="/ui/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/shared/web/theme.css" />
+    <link rel="stylesheet" href="/shared/web/explainer.css" />
+    <link rel="stylesheet" href="/ui/app.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand"><img src="/ui/icon.svg" alt="" width="30" height="30" /><span data-product-name>ChainPilot</span></div>
+      <nav class="tabs" role="tablist" aria-label="Sections">
+        <button role="tab" id="tab-play" aria-controls="panel-play" aria-selected="true">Play</button>
+        <button role="tab" id="tab-strategy" aria-controls="panel-strategy" aria-selected="false" tabindex="-1">How compounding works</button>
+        <button role="tab" id="tab-subscription" aria-controls="panel-subscription" aria-selected="false" tabindex="-1">Subscription</button>
+        <button role="tab" id="tab-help" aria-controls="panel-help" aria-selected="false" tabindex="-1">Help</button>
+      </nav>
+      <button class="license-chip pill" id="license-chip" type="button">Free</button>
+    </header>
+
+    <div class="banner" id="banner" hidden></div>
+
+    <main>
+      <!-- PLAY -->
+      <section class="panel" id="panel-play" role="tabpanel" aria-labelledby="tab-play">
+        <div class="play-grid">
+          <form class="card plan" id="plan-form" novalidate>
+            <h2>Your plan</h2>
+            <fieldset class="modes">
+              <legend class="field-label">Mode</legend>
+              <label class="mode">
+                <input type="radio" name="mode" value="dry-run" />
+                <span><b>Dry run</b><small>Watches real rounds and bets on paper. Free.</small></span>
+              </label>
+              <label class="mode">
+                <input type="radio" name="mode" value="practice" />
+                <span><b>Practice</b><small>Places bets on the game's play-money mode. Free.</small></span>
+              </label>
+              <label class="mode live">
+                <input type="radio" name="mode" value="live" />
+                <span><b>Live</b><small>Real money. Needs a subscription.</small></span>
+              </label>
+            </fieldset>
+
+            <div class="fields">
+              <label class="field">
+                <span class="field-label">Initial bet</span>
+                <span class="input"><input name="bet" type="number" step="0.01" min="0.01" inputmode="decimal" /></span>
+                <small class="field-help">Each chain starts with this. A lost chain costs exactly this.</small>
+                <small class="field-error" data-error="bet"></small>
+              </label>
+              <label class="field">
+                <span class="field-label">Cash out at</span>
+                <span class="input"><input name="cashout" type="number" step="0.01" min="1.01" max="100" inputmode="decimal" /><em>×</em></span>
+                <small class="field-help">The game's Auto Cash Out takes the win at exactly this multiplier.</small>
+                <small class="field-error" data-error="cashout"></small>
+              </label>
+              <label class="field">
+                <span class="field-label">Wins per chain</span>
+                <span class="input"><input name="steps" type="number" step="1" min="1" max="30" inputmode="numeric" /></span>
+                <small class="field-help">After a win the whole payout is bet again, this many times.</small>
+                <small class="field-error" data-error="steps"></small>
+              </label>
+              <label class="field">
+                <span class="field-label">Stop after</span>
+                <span class="input"><input name="chains" type="number" step="1" min="0" inputmode="numeric" /><em>completed chains</em></span>
+                <small class="field-help">0 = no target; only the limits stop the session.</small>
+                <small class="field-error" data-error="chains"></small>
+              </label>
+              <label class="field">
+                <span class="field-label">Loss limit</span>
+                <span class="input"><input name="maxLoss" type="number" step="0.01" min="0.01" inputmode="decimal" /></span>
+                <small class="field-help">The session stops before its loss could pass this.</small>
+                <small class="field-error" data-error="maxLoss"></small>
+              </label>
+              <label class="field">
+                <span class="field-label">Time limit</span>
+                <span class="input"><input name="maxMinutes" type="number" step="1" min="0" max="1440" inputmode="numeric" /><em>minutes</em></span>
+                <small class="field-help">0 = no time limit.</small>
+                <small class="field-error" data-error="maxMinutes"></small>
+              </label>
+              <label class="field">
+                <span class="field-label">Rounds between bets</span>
+                <span class="input"><em class="pre">1 to</em><input name="maxGap" type="number" step="1" min="1" max="50" inputmode="numeric" /></span>
+                <small class="field-help">Waits a random number of rounds after each bet. 1 = every round. It doesn't change the odds.</small>
+                <small class="field-error" data-error="maxGap"></small>
+              </label>
+            </div>
+
+            <div class="glance" id="glance" aria-live="polite"></div>
+          </form>
+
+          <div class="side">
+            <section class="card session" aria-labelledby="session-title">
+              <div class="row between">
+                <h2 id="session-title">Session</h2>
+                <span class="pill" id="status-pill">Idle</span>
+              </div>
+              <div class="kpis" id="kpis"></div>
+              <div class="controls">
+                <button class="btn" id="open-game" type="button">Open game window</button>
+                <button class="btn primary big" id="start" type="button">Start dry run</button>
+                <button class="btn danger big" id="stop" type="button" hidden>Stop</button>
+                <button class="btn" id="retry" type="button" hidden>Retry now</button>
+              </div>
+              <p class="note" id="session-note" role="status"></p>
+            </section>
+
+            <section class="card" aria-labelledby="bets-title">
+              <div class="row between">
+                <h2 id="bets-title">Bets</h2>
+                <button class="link-button" type="button" data-open="logs">Open logs folder</button>
+              </div>
+              <div class="table-scroll bets-scroll">
+                <table class="data" id="bets">
+                  <thead>
+                    <tr>
+                      <th scope="col">Time</th>
+                      <th scope="col">Step</th>
+                      <th scope="col" class="num">Bet</th>
+                      <th scope="col" class="num">Crash</th>
+                      <th scope="col">Result</th>
+                      <th scope="col" class="num">Session net</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+                <p class="empty muted" id="bets-empty">No bets yet. Start a session to see each bet here.</p>
+              </div>
+            </section>
+
+            <details class="card log">
+              <summary>Activity log</summary>
+              <ol id="log"></ol>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- STRATEGY -->
+      <section class="panel" id="panel-strategy" role="tabpanel" aria-labelledby="tab-strategy" hidden>
+        <div class="card prose">
+          <h2>How compounding works</h2>
+          <p>
+            ChainPilot plays a <strong>compounding chain</strong> (a positive progression, also called Paroli). You risk a
+            small bet; each time it wins, the <em>whole</em> payout rides on the next round instead of being banked. A run of
+            wins grows the stake fast. A loss ends the chain and costs only the initial bet, because everything above it
+            was that chain's own winnings.
+          </p>
+          <p>
+            It's the reverse of doubling after losses (Martingale), which risks more and more of your own money to win back a
+            small amount. Here you only ever risk new money one initial bet at a time. That caps how fast you can lose. It
+            doesn't make you win.
+          </p>
+          <p>Change the numbers below to see what your plan really does.</p>
+          <div id="explainer"></div>
+        </div>
+
+        <div class="cards-3">
+          <article class="card">
+            <h3>Lower or higher cash-out?</h3>
+            <p>
+              A lower multiplier wins more often but grows slowly; a higher one grows fast but rarely completes a chain. The
+              average return per bet is the same at any multiplier. You choose the shape of your results, not their average.
+            </p>
+          </article>
+          <article class="card">
+            <h3>More wins per chain?</h3>
+            <p>
+              Each extra step multiplies the payout by your cash-out and the chance by about one half. It also multiplies the
+              average return by the game's 97% once more, so longer chains lose more on average.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Gaps between bets?</h3>
+            <p>
+              Rounds are independent: a crash at 1.00× doesn't make a big one "due". Waiting a random number of rounds
+              spreads your bets out over time; it doesn't change the odds of any bet.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- SUBSCRIPTION -->
+      <section class="panel" id="panel-subscription" role="tabpanel" aria-labelledby="tab-subscription" hidden>
+        <div class="sub-grid">
+          <div class="card" id="license-card"></div>
+
+          <div class="card">
+            <h2>Subscribe with MTN MoMo</h2>
+            <p class="muted" id="sub-intro"></p>
+            <form id="subscribe-form" novalidate>
+              <div class="plans" id="plans" role="radiogroup" aria-label="Plan"></div>
+              <label class="field phone">
+                <span class="field-label">Your MoMo number</span>
+                <span class="input"><em class="pre" id="dial-code"></em><input name="phone" type="tel" autocomplete="tel" inputmode="tel" /></span>
+                <small class="field-help">You'll get a prompt on this phone. Approve it with your MoMo PIN.</small>
+              </label>
+              <button class="btn primary big" type="submit" id="pay">Pay with MoMo</button>
+            </form>
+            <div class="order" id="order" role="status" aria-live="polite" hidden></div>
+          </div>
+
+          <div class="card">
+            <h2>Already paid?</h2>
+            <p class="muted">Reinstalled Windows or moved to this PC? Your subscription is tied to this computer's machine ID.</p>
+            <p><button class="btn" type="button" id="restore">Restore purchase</button></p>
+            <form id="key-form" class="key-form" novalidate>
+              <label class="field">
+                <span class="field-label">Or paste a license key</span>
+                <textarea name="key" rows="3" spellcheck="false" placeholder="CP1.…"></textarea>
+              </label>
+              <button class="btn" type="submit">Activate key</button>
+            </form>
+            <p class="note" id="restore-note" role="status"></p>
+            <div id="manual-pay"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HELP -->
+      <section class="panel" id="panel-help" role="tabpanel" aria-labelledby="tab-help" hidden>
+        <div class="help-grid">
+          <div class="card prose">
+            <h2>Getting started</h2>
+            <ol>
+              <li><strong>Open the game window</strong> and log in to <span data-game-name>the casino</span>. The login is remembered.</li>
+              <li><strong>Set your plan</strong> on the Play tab. Start with a <strong>dry run</strong>: it watches real rounds and bets on paper.</li>
+              <li>Try <strong>practice</strong> to see the bot place bets with play money.</li>
+              <li>When you're ready, <strong>subscribe</strong> and choose <strong>Live</strong>.</li>
+            </ol>
+            <h3>While it plays</h3>
+            <ul>
+              <li>Keep the game window open and visible. Don't minimise it.</li>
+              <li>Leave the <strong>first (left) bet panel</strong> alone, and don't bet with the second one: the bot reads its messages.</li>
+              <li><strong>Stop</strong> waits for a bet in the air to settle. Auto Cash Out runs on the game's server, so a bet still cashes out even if your PC or internet drops.</li>
+              <li>If your balance runs low, the bot pauses. You can add funds and it carries on within your loss limit. Or just press Stop.</li>
+            </ul>
+            <h3>If something goes wrong</h3>
+            <ul>
+              <li><strong>"Waiting for Aviator"</strong>: log in and open Aviator in the game window; the bot finds it by itself.</li>
+              <li><strong>The bot stopped finding the game</strong>: the casino may have changed its page. Updates usually arrive automatically; check the website or contact support.</li>
+              <li><strong>Payment approved but no subscription</strong>: press <em>Restore purchase</em> on the Subscription tab after a minute.</li>
+            </ul>
+          </div>
+
+          <div class="stack">
+            <div class="card">
+              <h2>Play responsibly</h2>
+              <p>
+                <span data-product-name>ChainPilot</span> can't predict rounds or beat the house edge. Only bet money you can
+                afford to lose. Set a loss limit and a time limit, and take breaks.
+              </p>
+              <ul class="links" id="helplines"></ul>
+            </div>
+            <div class="card">
+              <h2>Settings</h2>
+              <label class="field">
+                <span class="field-label">Browser for the game window</span>
+                <span class="input">
+                  <select id="browser-select">
+                    <option value="auto">Automatic</option>
+                    <option value="chrome">Google Chrome</option>
+                    <option value="msedge">Microsoft Edge</option>
+                  </select>
+                </span>
+              </label>
+              <p class="row wrap gap">
+                <button class="btn" type="button" data-open="logs">Bet logs</button>
+                <button class="btn" type="button" data-open="data">Data folder</button>
+                <button class="btn" type="button" data-open="guide">Full guide (website)</button>
+              </p>
+            </div>
+            <div class="card">
+              <h2>About</h2>
+              <p id="about"></p>
+              <p class="row wrap gap">
+                <button class="btn" type="button" id="check-updates">Check for updates</button>
+                <button class="btn danger" type="button" id="quit">Quit</button>
+              </p>
+              <p class="fineprint">
+                Not affiliated with Spribe, the casino, or the game's provider. "Aviator" is a trademark of its owner.
+                <button class="link-button" type="button" data-open="terms">Terms</button> ·
+                <button class="link-button" type="button" data-open="privacy">Privacy</button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="welcome" aria-labelledby="welcome-title">
+      <form method="dialog" class="welcome">
+        <img src="/ui/icon.svg" alt="" width="48" height="48" />
+        <h2 id="welcome-title">Before you start</h2>
+        <ul>
+          <li>You must be <strong data-min-age>18</strong> or older.</li>
+          <li>
+            <span data-product-name>ChainPilot</span> plays a compounding plan for you. <strong>It doesn't predict rounds or
+            change the odds.</strong> On average every bet loses about 3% of its stake, and most sessions end down.
+          </li>
+          <li>Casinos usually forbid bots. Using one can get your account restricted.</li>
+          <li>Only bet money you can afford to lose. Set a loss limit and a time limit.</li>
+        </ul>
+        <button class="btn primary big" id="accept" type="submit">I understand, and I'm 18 or older</button>
+      </form>
+    </dialog>
+
+    <script type="module" src="/ui/app.js"></script>
+  </body>
+</html>

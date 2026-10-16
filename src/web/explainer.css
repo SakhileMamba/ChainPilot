@@ -1,0 +1,200 @@
+/* The compounding explainer and its chart (src/web/explainer.js, charts.js). */
+.ex-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  align-items: start;
+  margin-bottom: 18px;
+}
+.ex-controls > .btn {
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+.ex-story {
+  font-size: 1.02rem;
+  color: var(--text);
+  max-width: 72ch;
+}
+
+/* Stat tiles: label, value (proportional figures), note */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+  transition: opacity 0.2s;
+}
+.tile {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  display: grid;
+  gap: 2px;
+}
+.tile-label {
+  color: var(--text-2);
+  font-size: 0.82rem;
+}
+.tile-value {
+  font-size: 1.55rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+.tile-note {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.stale {
+  opacity: 0.45;
+}
+
+/* The ladder table with chance meters (one hue: fill on a darker track of the same ramp) */
+.ladder .chance {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.meter {
+  flex: 1;
+  min-width: 80px;
+  max-width: 260px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--meter-track);
+  overflow: hidden;
+}
+.meter-fill {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  background: var(--meter-fill);
+}
+.ladder tr.done th,
+.ladder tr.done td {
+  font-weight: 650;
+  border-bottom: 0;
+}
+.ex-edge {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface-2);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.ex-edge p:last-child {
+  margin-bottom: 0;
+}
+
+/* Chart */
+.ex-chart {
+  transition: opacity 0.2s;
+}
+.chart {
+  margin: 0;
+}
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--text-2);
+  margin-bottom: 6px;
+}
+.chart-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.chart-legend .link-button {
+  margin-left: auto;
+  font-size: 0.85rem;
+}
+.swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+.swatch.loss {
+  background: var(--loss);
+}
+.swatch.gain {
+  background: var(--gain);
+}
+.swatch.flat {
+  background: var(--flat);
+}
+.chart-plot {
+  position: relative;
+}
+.chart-plot svg {
+  display: block;
+  overflow: visible;
+}
+.chart .grid {
+  stroke: var(--line);
+  stroke-width: 1;
+}
+.chart .axis {
+  stroke: var(--line-strong);
+  stroke-width: 1;
+}
+.chart .tick {
+  fill: var(--muted);
+  font: 11px var(--font);
+  font-variant-numeric: tabular-nums;
+}
+.chart .value {
+  fill: var(--text-2);
+  font: 600 11px var(--font);
+}
+.chart .bar .hit {
+  fill: transparent;
+}
+.chart .bar.loss .mark {
+  fill: var(--loss);
+}
+.chart .bar.gain .mark {
+  fill: var(--gain);
+}
+.chart .bar.flat .mark {
+  fill: var(--flat);
+}
+.chart .bar:hover .mark,
+.chart .bar:focus .mark {
+  filter: brightness(1.2);
+}
+.chart .bar:focus {
+  outline: none;
+}
+.chart .bar:focus .hit {
+  stroke: var(--accent);
+  stroke-width: 1;
+}
+.chart-tooltip {
+  position: absolute;
+  z-index: 2;
+  width: 180px;
+  pointer-events: none;
+  background: var(--surface-3);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  font-size: 0.82rem;
+  color: var(--text-2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+.chart-tooltip strong {
+  color: var(--text);
+  font-size: 1rem;
+}
+.chart-tooltip small {
+  display: block;
+  color: var(--muted);
+}
+.chart-table {
+  max-height: 320px;
+  overflow: auto;
+}

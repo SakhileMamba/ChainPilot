@@ -1,0 +1,40 @@
+{
+  "name": "ChainPilot",
+  "id": "chainpilot",
+  "tagline": "A compounding autopilot for Aviator",
+  "publisher": "Sakhile Mamba",
+  "siteUrl": "https://YOUR-GITHUB-USERNAME.github.io/chainpilot/",
+  "apiUrl": "",
+  "game": {
+    "name": "Aviator on mulasport.com",
+    "url": "https://www.mulasport.com/?gameID=aviator-spribe&mode=real",
+    "demoUrl": "https://www.mulasport.com/?gameID=aviator-spribe&mode=demo",
+    "demoMarker": "mode=demo",
+    "rtp": 0.97
+  },
+  "country": {
+    "name": "Eswatini",
+    "dialCode": "268",
+    "localDigits": 8,
+    "example": "7612 3456"
+  },
+  "currency": "SZL",
+  "plans": [
+    { "id": "week", "name": "1 week", "days": 7, "price": 60 },
+    { "id": "month", "name": "1 month", "days": 30, "price": 180, "best": true },
+    { "id": "quarter", "name": "3 months", "days": 90, "price": 450 }
+  ],
+  "support": {
+    "whatsapp": "",
+    "email": ""
+  },
+  "manualPayment": {
+    "momoNumber": "",
+    "accountName": ""
+  },
+  "minimumAge": 18,
+  "helplines": [
+    { "name": "Gamblers Anonymous", "url": "https://www.gamblersanonymous.org/" },
+    { "name": "GambleAware (self-help tools and advice)", "url": "https://www.begambleaware.org/" }
+  ]
+}

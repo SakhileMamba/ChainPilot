@@ -1,0 +1,29 @@
+{
+  "name": "chainpilot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ChainPilot: compounding autopilot for Aviator on mulasport.com - Windows app, MoMo subscriptions, license server and website",
+  "type": "module",
+  "main": "desktop/main.js",
+  "scripts": {
+    "start": "node desktop/main.js",
+    "cli": "node aviator-bot.js",
+    "test": "node --test",
+    "keys": "node tools/keygen.js",
+    "license": "node tools/issue-license.js",
+    "sign-selectors": "node tools/sign-selectors.js",
+    "icons": "node tools/make-icons.js",
+    "screenshots": "node tools/make-screenshots.js",
+    "build:site": "node tools/build-site.js",
+    "site": "node tools/build-site.js && node tools/serve.js dist/site 8080",
+    "dev:api": "node tools/dev-api.js",
+    "video": "node tools/video/make-video.js",
+    "build:win": "node tools/build-windows.js"
+  },
+  "engines": {
+    "node": ">=20.10"
+  },
+  "dependencies": {
+    "playwright-core": "1.64.0"
+  }
+}

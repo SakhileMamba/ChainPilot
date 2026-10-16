@@ -1,0 +1,42 @@
+CHAINPILOT - LICENSE AND IMPORTANT NOTICE
+
+Please read this before installing. By installing ChainPilot you agree to it.
+
+1. ADULTS ONLY
+You must be at least 18 years old and allowed to gamble online where you live.
+You are responsible for making sure that gambling, and using betting software,
+is legal for you.
+
+2. WHAT CHAINPILOT IS, AND WHAT IT IS NOT
+ChainPilot is software that places bets for you in the game Aviator on
+mulasport.com, following a compounding plan you choose. It does NOT predict game
+rounds, does NOT change the odds and does NOT guarantee any winnings. On average
+every bet in this game loses part of its stake, and most sessions end with a
+loss. Only bet money you can afford to lose. Always set a loss limit.
+
+3. CASINO RULES
+Many casinos do not allow automated play. Using ChainPilot may break your
+casino's terms, and the casino may restrict or close your account. The
+developers of ChainPilot are not responsible for any action a casino takes.
+
+4. YOUR LICENSE
+The simulator, dry run and practice mode are free. Live betting needs a paid
+subscription, which works on one computer for the period paid for. You may not
+share or resell your license key, copy or resell the software, or try to get
+around its licensing.
+
+5. NO WARRANTY
+ChainPilot is provided "as is". Casino websites change without notice,
+connections drop and computers fail, so we cannot guarantee that the software
+will always work or that every bet will be placed, settled or recorded
+correctly. As far as the law allows, we are not liable for gambling losses or
+any indirect loss.
+
+The full terms of sale and use are on our website.
+
+ChainPilot is not affiliated with, endorsed by or connected to Spribe,
+Mulasport or Fun Games Live. "Aviator" is a trademark of its owner.
+
+THIRD-PARTY SOFTWARE
+ChainPilot includes Node.js (MIT license) and Playwright (Apache License 2.0).
+Their licenses are in THIRD-PARTY-NOTICES.txt in the installation folder.

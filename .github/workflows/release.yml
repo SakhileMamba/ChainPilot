@@ -1,0 +1,109 @@
+# Release: push a tag like v1.0.1 (matching "version" in package.json).
+#   1. builds the Windows installer (on Linux, with NSIS)
+#   2. installs it on a real Windows machine, runs the app's self-test, uninstalls it
+#   3. publishes a GitHub release with the installer and latest.json
+#   4. redeploys the website, which serves the new installer from GitHub Pages
+name: Release
+on:
+  push:
+    tags: ['v*.*.*']
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      name: ${{ steps.info.outputs.name }}
+      version: ${{ steps.info.outputs.version }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - id: info
+        name: Check the tag matches package.json
+        run: |
+          version=$(node -p "require('./package.json').version")
+          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match package.json version $version"; exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "name=$(node -p "require('./product.config.json').name")" >> "$GITHUB_OUTPUT"
+      - run: npm ci
+      - run: npm test
+      - run: sudo apt-get update && sudo apt-get install -y nsis
+      - run: node tools/build-windows.js
+      - uses: actions/upload-artifact@v7
+        with:
+          name: windows-installer
+          path: |
+            dist/windows/*.exe
+            dist/windows/latest.json
+          if-no-files-found: error
+
+  smoke-test:
+    needs: build
+    runs-on: windows-latest
+    env:
+      APP_NAME: ${{ needs.build.outputs.name }}
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: windows-installer
+          path: dist
+      - name: Install silently
+        shell: pwsh
+        run: |
+          $installer = Get-ChildItem dist\*.exe | Select-Object -First 1
+          $p = Start-Process -FilePath $installer.FullName -ArgumentList '/S' -Wait -PassThru
+          if ($p.ExitCode -ne 0) { throw "Installer exited with $($p.ExitCode)" }
+          $dir = Join-Path $env:LOCALAPPDATA "Programs\$env:APP_NAME"
+          foreach ($f in 'runtime\node.exe', 'app\desktop\main.js', 'app\node_modules\playwright-core\package.json', 'Uninstall.exe', 'icon.ico') {
+            if (-not (Test-Path (Join-Path $dir $f))) { throw "Missing after install: $f" }
+          }
+          $shortcut = Join-Path ([Environment]::GetFolderPath('Programs')) "$env:APP_NAME.lnk"
+          if (-not (Test-Path $shortcut)) { throw "No Start menu shortcut at $shortcut" }
+      - name: Self-test the installed app
+        shell: pwsh
+        run: |
+          $dir = Join-Path $env:LOCALAPPDATA "Programs\$env:APP_NAME"
+          & "$dir\runtime\node.exe" "$dir\app\desktop\main.js" --self-test
+          if ($LASTEXITCODE -ne 0) { throw 'Self-test failed' }
+      - name: Uninstall silently
+        shell: pwsh
+        run: |
+          $dir = Join-Path $env:LOCALAPPDATA "Programs\$env:APP_NAME"
+          # _?= runs the uninstaller in place, so -Wait really waits for it
+          $p = Start-Process -FilePath "$dir\Uninstall.exe" -ArgumentList '/S', "_?=$dir" -Wait -PassThru
+          if ($p.ExitCode -ne 0) { throw "Uninstaller exited with $($p.ExitCode)" }
+          if (Test-Path "$dir\runtime") { throw 'Uninstall left the program files behind' }
+
+  release:
+    needs: [build, smoke-test]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: windows-installer
+          path: dist
+      - name: Publish the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/*.exe dist/latest.json \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "${{ needs.build.outputs.name }} ${{ needs.build.outputs.version }}" \
+            --generate-notes
+
+  website:
+    needs: release
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/pages.yml

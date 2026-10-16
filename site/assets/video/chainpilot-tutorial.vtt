@@ -1,0 +1,473 @@
+WEBVTT
+
+1
+00:00:00.050 --> 00:00:01.631
+Welcome to ChainPilot.
+
+2
+00:00:01.631 --> 00:00:06.015
+In this video you'll see how to install it, set up your plan,
+
+3
+00:00:06.015 --> 00:00:09.105
+subscribe with MTN MoMo, and run a session.
+
+4
+00:00:09.105 --> 00:00:14.926
+You'll also see exactly how the compounding strategy works, and what it can't do.
+
+5
+00:00:15.578 --> 00:00:17.815
+Start on the ChainPilot website.
+
+6
+00:00:17.815 --> 00:00:20.961
+Open the download page and get the installer.
+
+7
+00:00:20.961 --> 00:00:27.184
+You need Windows 10 or 11, and Google Chrome or Microsoft Edge, which comes with Windows.
+
+8
+00:00:27.838 --> 00:00:32.569
+Because the installer is new, Windows may say it protected your PC.
+
+9
+00:00:32.569 --> 00:00:34.899
+Click More info, then Run anyway.
+
+10
+00:00:34.899 --> 00:00:41.325
+ChainPilot installs for your Windows account only, so it doesn't need administrator rights.
+
+11
+00:00:41.981 --> 00:00:46.093
+When setup finishes, open ChainPilot from the Start menu.
+
+12
+00:00:46.093 --> 00:00:52.080
+The control panel opens in its own window, and a small log window starts minimised.
+
+13
+00:00:52.080 --> 00:00:54.604
+Keep it open while ChainPilot runs.
+
+14
+00:00:55.259 --> 00:01:00.527
+The first time, ChainPilot asks you to confirm that you are 18 or older,
+
+15
+00:01:00.527 --> 00:01:03.235
+and that you understand what it does.
+
+16
+00:01:03.235 --> 00:01:07.479
+It doesn't predict rounds, and it doesn't change the odds.
+
+17
+00:01:07.479 --> 00:01:10.186
+On average, every bet loses about 3%.
+
+18
+00:01:10.840 --> 00:01:12.357
+Accept, and you're in.
+
+19
+00:01:12.357 --> 00:01:17.390
+There are four tabs: Play, How compounding works, Subscription, and Help.
+
+20
+00:01:17.390 --> 00:01:21.182
+The badge on the right shows whether you're subscribed.
+
+21
+00:01:21.834 --> 00:01:24.126
+Your plan lives on the Play tab.
+
+22
+00:01:24.126 --> 00:01:25.631
+First, choose a mode.
+
+23
+00:01:25.631 --> 00:01:29.069
+A dry run watches real rounds and bets on paper.
+
+24
+00:01:29.069 --> 00:01:32.723
+Practice clicks for real, on the game's play money.
+
+25
+00:01:32.723 --> 00:01:33.726
+Both are free.
+
+26
+00:01:33.726 --> 00:01:37.093
+Live uses real money, and needs a subscription.
+
+27
+00:01:37.746 --> 00:01:41.105
+The initial bet is what every chain starts with.
+
+28
+00:01:41.105 --> 00:01:44.604
+If a chain is lost, this is exactly what it costs.
+
+29
+00:01:44.604 --> 00:01:45.583
+We'll use ten.
+
+30
+00:01:46.234 --> 00:01:48.266
+Cash out at is your multiplier.
+
+31
+00:01:48.266 --> 00:01:51.477
+ChainPilot turns on the game's own Auto Cash Out,
+
+32
+00:01:51.477 --> 00:01:55.212
+so the game's server takes the win at exactly this point.
+
+33
+00:01:55.212 --> 00:01:56.720
+There's no click delay.
+
+34
+00:01:57.372 --> 00:02:00.186
+Wins per chain is where compounding happens.
+
+35
+00:02:00.186 --> 00:02:03.831
+After each win, the whole payout rides on the next round,
+
+36
+00:02:03.831 --> 00:02:06.965
+until this many wins in a row complete the chain.
+
+37
+00:02:07.618 --> 00:02:08.999
+Then come your limits.
+
+38
+00:02:08.999 --> 00:02:13.206
+Stop after ends the session when you've completed this many chains.
+
+39
+00:02:13.206 --> 00:02:17.726
+The loss limit stops the session before its loss could pass this amount.
+
+40
+00:02:17.726 --> 00:02:20.175
+Set it to money you can afford to lose.
+
+41
+00:02:20.175 --> 00:02:21.556
+We'll use one hundred.
+
+42
+00:02:21.556 --> 00:02:25.637
+And the time limit ends the session after the minutes you choose.
+
+43
+00:02:26.291 --> 00:02:30.649
+Rounds between bets waits a random number of rounds after each bet.
+
+44
+00:02:30.649 --> 00:02:32.926
+It spreads your bets out over time.
+
+45
+00:02:32.926 --> 00:02:34.682
+It doesn't change the odds.
+
+46
+00:02:35.335 --> 00:02:45.522
+As you type, "This plan at a glance" shows what your settings mean: what a full chain pays, how likely it is, and the average return.
+
+47
+00:02:45.522 --> 00:02:49.505
+With these settings, a full chain turns 10 into 247.
+
+48
+00:02:49.505 --> 00:02:52.875
+60, but only about 1 chain in 29 gets there.
+
+49
+00:02:53.527 --> 00:02:55.209
+Here's the idea.
+
+50
+00:02:55.209 --> 00:02:58.256
+You bet 10, cashing out at 1.
+
+51
+00:02:58.256 --> 00:02:58.677
+90×.
+
+52
+00:02:58.677 --> 00:03:04.247
+A win pays 19, and all of it rides on the next round.
+
+53
+00:03:04.247 --> 00:03:05.088
+Then 36.
+
+54
+00:03:05.088 --> 00:03:05.823
+10, 68.
+
+55
+00:03:05.823 --> 00:03:06.664
+59, 130.
+
+56
+00:03:06.664 --> 00:03:06.979
+32.
+
+57
+00:03:06.979 --> 00:03:10.763
+Five wins in a row turn 10 into 247.
+
+58
+00:03:10.763 --> 00:03:11.078
+60.
+
+59
+00:03:11.732 --> 00:03:14.034
+But one loss anywhere ends the chain.
+
+60
+00:03:14.034 --> 00:03:18.763
+You lose your ten, because everything above it was the chain's own winnings.
+
+61
+00:03:18.763 --> 00:03:21.190
+Then a new chain starts again from ten.
+
+62
+00:03:21.843 --> 00:03:27.233
+The catch is that the chance shrinks as fast as the stake grows.
+
+63
+00:03:27.233 --> 00:03:27.654
+At 1.
+
+64
+00:03:27.654 --> 00:03:31.023
+90×, one bet wins about 51% of the time.
+
+65
+00:03:31.023 --> 00:03:36.582
+Each step needs another win, so five in a row happen only about 3.
+
+66
+00:03:36.582 --> 00:03:37.845
+5% of the time.
+
+67
+00:03:37.845 --> 00:03:40.288
+That's roughly 1 chain in 29.
+
+68
+00:03:40.941 --> 00:03:43.361
+And the house edge compounds too.
+
+69
+00:03:43.361 --> 00:03:46.734
+On average the game returns 97% of what's bet.
+
+70
+00:03:46.734 --> 00:03:53.626
+A five-step chain is five bets riding on each other, so it returns about 86% of its first bet.
+
+71
+00:03:53.626 --> 00:03:56.486
+Compounding makes the rare wins bigger.
+
+72
+00:03:56.486 --> 00:03:59.932
+It doesn't change which way the average points.
+
+73
+00:04:00.620 --> 00:04:05.758
+You can check all of this with your own numbers, on the How compounding works tab.
+
+74
+00:04:05.758 --> 00:04:10.457
+The story at the top describes your chain, and the tiles show the key odds.
+
+75
+00:04:11.118 --> 00:04:15.552
+The ladder shows every step: what you bet, what it pays if it wins,
+
+76
+00:04:15.552 --> 00:04:18.464
+and the chance that the chain gets that far.
+
+77
+00:04:19.119 --> 00:04:21.957
+Try a lower multiplier, and fewer steps.
+
+78
+00:04:21.957 --> 00:04:26.144
+Chains now complete far more often, but they pay much less.
+
+79
+00:04:26.144 --> 00:04:29.124
+The average return per bet doesn't change.
+
+80
+00:04:29.778 --> 00:04:34.579
+Back on our original plan, ChainPilot simulates 4,000 sessions below.
+
+81
+00:04:34.579 --> 00:04:39.797
+Most sessions end down, usually at the loss limit, and some reach the goal.
+
+82
+00:04:39.797 --> 00:04:42.649
+That's the honest shape of this strategy.
+
+83
+00:04:43.302 --> 00:04:48.553
+When you're happy with a plan, press Use these settings, to copy it to the Play tab.
+
+84
+00:04:49.206 --> 00:04:51.564
+Live betting needs a subscription.
+
+85
+00:04:51.564 --> 00:04:53.367
+Open the Subscription tab.
+
+86
+00:04:53.367 --> 00:04:55.795
+This is your computer's machine ID.
+
+87
+00:04:55.795 --> 00:04:58.361
+Your subscription belongs to this PC.
+
+88
+00:04:59.012 --> 00:05:02.803
+Choose a plan, then enter your MTN MoMo number.
+
+89
+00:05:03.456 --> 00:05:04.822
+Press Pay with MoMo.
+
+90
+00:05:04.822 --> 00:05:07.486
+A payment prompt arrives on your phone.
+
+91
+00:05:07.486 --> 00:05:11.039
+Check the amount, and approve it with your MoMo PIN.
+
+92
+00:05:11.691 --> 00:05:15.670
+As soon as MoMo confirms, ChainPilot activates by itself.
+
+93
+00:05:15.670 --> 00:05:20.906
+If you renew early, the new days are added to the end of your subscription.
+
+94
+00:05:21.559 --> 00:05:26.331
+Reinstalled Windows, or closed the app before the payment confirmed?
+
+95
+00:05:26.331 --> 00:05:27.945
+Press Restore purchase.
+
+96
+00:05:27.945 --> 00:05:30.612
+You can also paste a license key here.
+
+97
+00:05:31.264 --> 00:05:36.230
+Back on the Play tab, open the game window, and log in to the casino there.
+
+98
+00:05:36.230 --> 00:05:38.348
+ChainPilot remembers your login.
+
+99
+00:05:38.348 --> 00:05:41.593
+Keep that window open and visible while it plays.
+
+100
+00:05:42.245 --> 00:05:43.803
+Let's start a dry run.
+
+101
+00:05:43.803 --> 00:05:46.636
+In this video, the rounds are simulated.
+
+102
+00:05:46.636 --> 00:05:52.584
+In real use, ChainPilot plays in the game window, with the game's own Auto Cash Out.
+
+103
+00:05:53.237 --> 00:05:58.695
+The session panel shows the running total, how many bets won, completed chains,
+
+104
+00:05:58.695 --> 00:05:59.870
+and the next bet.
+
+105
+00:05:59.870 --> 00:06:04.913
+Every bet is listed below, and saved to a spreadsheet you can open later.
+
+106
+00:06:05.564 --> 00:06:07.076
+Press Stop at any time.
+
+107
+00:06:07.076 --> 00:06:10.955
+A bet that's already in the air is allowed to settle first.
+
+108
+00:06:10.955 --> 00:06:15.887
+For live betting, ChainPilot asks you to confirm before it bets real money.
+
+109
+00:06:16.538 --> 00:06:21.530
+The Help tab has a quick guide, links to support services, your bet logs,
+
+110
+00:06:21.530 --> 00:06:23.172
+and a check for updates.
+
+111
+00:06:23.172 --> 00:06:27.959
+Fixes for the game page download automatically when ChainPilot starts.
+
+112
+00:06:28.610 --> 00:06:34.115
+Before every session, set a loss limit you can afford to lose, and a time limit.
+
+113
+00:06:34.115 --> 00:06:36.798
+Never raise your limit to chase losses.
+
+114
+00:06:36.798 --> 00:06:41.133
+If gambling stops being fun, take a break, and talk to someone.
+
+115
+00:06:41.787 --> 00:06:43.064
+That's ChainPilot.
+
+116
+00:06:43.064 --> 00:06:47.960
+Download it for free, try the simulator, a dry run and practice mode,
+
+117
+00:06:47.960 --> 00:06:50.940
+and subscribe with MoMo when you're ready.
+
+118
+00:06:50.940 --> 00:06:53.920
+Thanks for watching, and play responsibly.

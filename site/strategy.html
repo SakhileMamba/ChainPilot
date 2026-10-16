@@ -1,0 +1,129 @@
+<!--{
+  "id": "strategy",
+  "title": "How compounding works",
+  "description": "The compounding (Paroli) strategy for Aviator explained: how a chain grows, how likely each step is, why the house edge compounds too, and what thousands of simulated sessions look like with your settings.",
+  "head": "<link rel=\"stylesheet\" href=\"assets/shared/web/explainer.css\" />",
+  "scripts": "<script type=\"module\" src=\"assets/strategy-page.js\"></script>"
+}-->
+<article class="wrap section article">
+  <p class="eyebrow">Strategy guide</p>
+  <h1>How compounding works</h1>
+  <p class="lead">
+    {{name}} plays one strategy: the <strong>compounding chain</strong>, also called a positive progression or Paroli. This
+    page explains it step by step, with real numbers you can change, so you know exactly what you are running.
+  </p>
+  {{{strategyVideoLink}}}
+
+  <nav class="toc card" aria-label="On this page">
+    <a href="#chain">1. The chain</a>
+    <a href="#try">2. Try your own numbers</a>
+    <a href="#odds">3. Why the odds shrink</a>
+    <a href="#edge">4. The house edge compounds too</a>
+    <a href="#settings">5. What each setting changes</a>
+    <a href="#martingale">6. Compounding vs Martingale</a>
+    <a href="#myths">7. Myths to ignore</a>
+    <a href="#stop">8. Knowing when to stop</a>
+  </nav>
+
+  <h2 id="chain">1. The chain</h2>
+  <p>
+    You bet a small amount, say <strong>10</strong>, with Auto Cash Out at <strong>1.90×</strong>. If the plane flies past
+    1.90×, the game pays you 19.00. Instead of taking that money, you bet <em>all of it</em> on the next round. Another win
+    pays 36.10, and that rides too. That is compounding: each win becomes the next stake.
+  </p>
+  <div class="table-scroll">
+    <table class="data example">
+      <caption class="sr-only">A five-step chain starting from 10 at 1.90×</caption>
+      <thead>
+        <tr><th scope="col">Win number</th><th scope="col" class="num">You bet</th><th scope="col" class="num">It pays</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">1</th><td class="num">10.00</td><td class="num">19.00</td></tr>
+        <tr><th scope="row">2</th><td class="num">19.00</td><td class="num">36.10</td></tr>
+        <tr><th scope="row">3</th><td class="num">36.10</td><td class="num">68.59</td></tr>
+        <tr><th scope="row">4</th><td class="num">68.59</td><td class="num">130.32</td></tr>
+        <tr><th scope="row">5</th><td class="num">130.32</td><td class="num">247.60</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    After a set number of wins in a row (here five), the chain is <strong>complete</strong>: 10 has become 247.60, a profit
+    of 237.60, and you start a fresh chain from 10. If <strong>any</strong> round in the chain crashes before 1.90×, the
+    chain is over and you have lost <strong>only your 10</strong>. Everything above it was the chain's own winnings. Then a
+    new chain starts from 10.
+  </p>
+  <p>That is the whole appeal: a small, fixed risk per chain, and a big payout when a chain completes.</p>
+
+  <h2 id="try">2. Try your own numbers</h2>
+  <p>Change the settings and everything below updates: the chain, the odds of each step, and 4,000 simulated sessions.</p>
+  <div class="card explainer-card">
+    <div id="explainer"><p class="muted">Loading the calculator… (it needs JavaScript)</p></div>
+  </div>
+
+  <h2 id="odds">3. Why the odds shrink as fast as the stake grows</h2>
+  <p>
+    Each step needs one more win. At 1.90× a single bet wins about <strong>51%</strong> of the time ({{rtpPercent}} ÷ 1.90).
+    Two wins in a row happen about 26% of the time, five in a row about <strong>3.5%</strong>: roughly once in 29 chains.
+    So the stake grows by ×1.9 per step, and the chance of getting there falls by about ×0.51 per step.
+  </p>
+  <p>
+    Every round is independent. The plane doesn't remember the last round, so a long run of low crashes doesn't make a high
+    one "due", and a win doesn't make the next win more likely.
+  </p>
+
+  <h2 id="edge">4. The house edge compounds too</h2>
+  <p>
+    The casino states that this game returns {{rtpPercent}} of what is bet. On average every bet loses {{edgePercent}} of its
+    stake, at any multiplier. A five-step chain is five bets riding on each other, so on average it returns
+    {{rtpPercent}} × {{rtpPercent}} × {{rtpPercent}} × {{rtpPercent}} × {{rtpPercent}} ≈ <strong>86%</strong> of its first
+    bet. In other words it loses about 14% per chain on average.
+  </p>
+  <p>
+    That's the honest summary of compounding. <strong>It changes the shape of your results, not their direction.</strong>
+    Most chains lose their first bet, a few win big, and the average stays below zero. In savings, compound interest grows
+    money because every period adds a positive return. Here every round has a small negative return, so compounding
+    multiplies that too.
+  </p>
+
+  <h2 id="settings">5. What each setting changes</h2>
+  <dl class="settings-list">
+    <dt>Cash out at (multiplier)</dt>
+    <dd>Lower wins more often but grows slowly; higher grows fast but rarely completes a chain. The average return per bet is the same at any multiplier.</dd>
+    <dt>Wins per chain</dt>
+    <dd>Each extra step multiplies the payout by your multiplier and the chance by about one half. It also multiplies the average return by {{rtpPercent}} once more.</dd>
+    <dt>Loss limit</dt>
+    <dd>Each lost chain costs exactly one initial bet, so a limit of 10 bets allows 10 lost chains. It's the most important setting: it decides the most you can lose in a session.</dd>
+    <dt>Stop after (completed chains)</dt>
+    <dd>Ends the session after a win instead of giving it back. With 1, the session stops at the first completed chain.</dd>
+    <dt>Time limit</dt>
+    <dd>Ends the session after a set time, whatever happens. Breaks matter.</dd>
+    <dt>Rounds between bets</dt>
+    <dd>Waits a random number of rounds after each bet. It spreads bets out over time; it doesn't change the odds of any bet.</dd>
+  </dl>
+
+  <h2 id="martingale">6. Compounding vs Martingale</h2>
+  <p>
+    Martingale doubles the bet after every <em>loss</em> to win back what was lost. It wins small amounts often, but a losing
+    streak demands huge bets, and one bad run wipes out everything. Compounding is the reverse: it raises the stake only with
+    money the chain has <em>won</em>, so new money is risked one initial bet at a time. That makes losses slow and capped. It
+    doesn't turn a losing game into a winning one.
+  </p>
+
+  <h2 id="myths">7. Myths to ignore</h2>
+  <ul>
+    <li><strong>"Predictors" and "signals".</strong> Rounds are decided by the game's random generator before they start. Anyone selling predictions is selling a scam.</li>
+    <li><strong>"Patterns" in the history.</strong> Past crash points tell you nothing about the next one.</li>
+    <li><strong>"The right settings always win."</strong> No setting changes the {{edgePercent}} average loss per bet. Settings only change how wins and losses are spread.</li>
+  </ul>
+
+  <h2 id="stop">8. Knowing when to stop</h2>
+  <p>
+    Decide what you can afford to lose <em>before</em> you start and make it your loss limit. Set a time limit. Never raise
+    the limit to chase losses. If gambling stops being fun, take a break, and see our
+    <a href="responsible-gambling.html">responsible gambling page</a> for help.
+  </p>
+  <p class="cta-row">
+    <a class="btn primary big" href="download.html">Get {{name}}</a>
+    <a class="btn big" href="guide.html">Read the user guide</a>
+  </p>
+</article>

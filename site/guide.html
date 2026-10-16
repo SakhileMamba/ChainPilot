@@ -1,0 +1,101 @@
+<!--{
+  "id": "guide",
+  "title": "User guide",
+  "description": "How to install, set up and use ChainPilot: the game window, every setting, dry run, practice and live modes, subscriptions, and troubleshooting."
+}-->
+<article class="wrap section article">
+  <p class="eyebrow">User guide</p>
+  <h1>Using {{name}}</h1>
+
+  <nav class="toc card" aria-label="On this page">
+    <a href="#first">First start</a>
+    <a href="#game">The game window</a>
+    <a href="#plan">Your plan</a>
+    <a href="#modes">Dry run, practice and live</a>
+    <a href="#playing">While it plays</a>
+    <a href="#subscription">Your subscription</a>
+    <a href="#moving">Changing computers</a>
+    <a href="#trouble">Troubleshooting</a>
+  </nav>
+
+  <h2 id="first">First start</h2>
+  <p>
+    Open {{name}} from the Start menu. The control panel opens in its own window, and a small log window opens minimised;
+    keep it open. The first time, {{name}} asks you to confirm that you are {{minimumAge}} or older and that you understand
+    it doesn't predict rounds or change the odds.
+  </p>
+
+  <h2 id="game">The game window</h2>
+  <p>
+    Press <strong>Open game window</strong>. {{name}} opens {{game.name}} in a separate Chrome or Edge window with its own
+    profile. Log in there once and the login is remembered. The casino only opens Aviator, even its play-money version, for
+    logged-in players, so every mode needs this. Keep that window open and visible while the bot plays (don't
+    minimise it), and leave the game's bet panels alone: {{name}} uses the first (left) panel and reads its messages.
+  </p>
+
+  <h2 id="plan">Your plan</h2>
+  <dl class="settings-list">
+    <dt>Initial bet</dt>
+    <dd>What each chain starts with. A lost chain costs exactly this amount.</dd>
+    <dt>Cash out at</dt>
+    <dd>The multiplier for the game's Auto Cash Out. {{name}} switches Auto Cash Out on and sets it for you.</dd>
+    <dt>Wins per chain</dt>
+    <dd>After a win, the whole payout is bet again until this many wins in a row complete the chain. 1 = no compounding.</dd>
+    <dt>Stop after … completed chains</dt>
+    <dd>The session ends after this many completed chains. 0 = no target (only the limits stop it).</dd>
+    <dt>Loss limit</dt>
+    <dd>The session stops before its total loss could go past this. Set it to what you can afford to lose.</dd>
+    <dt>Time limit</dt>
+    <dd>The session stops after this many minutes. 0 = no time limit.</dd>
+    <dt>Rounds between bets</dt>
+    <dd>After each bet, wait a random 1 to <em>k</em> rounds. 1 = bet every round. It doesn't change the odds.</dd>
+  </dl>
+  <p>The box <strong>This plan at a glance</strong> shows what your settings mean. The <a href="strategy.html">strategy guide</a> explains them in depth.</p>
+
+  <h2 id="modes">Dry run, practice and live</h2>
+  <ul>
+    <li><strong>Dry run</strong> (free): watches real rounds and "bets" on paper. Nothing is clicked.</li>
+    <li><strong>Practice</strong> (free): plays the game's play-money mode, so you can watch {{name}} place bets. It refuses to bet unless the game window is on the play-money page.</li>
+    <li><strong>Live</strong> (subscription): real money. {{name}} asks you to confirm before it starts.</li>
+  </ul>
+
+  <h2 id="playing">While it plays</h2>
+  <ul>
+    <li>The Session panel shows the running total, bets won, chains completed, the next bet and the time left. Every bet is listed and saved to a spreadsheet file (<em>Help → Bet logs</em>).</li>
+    <li><strong>Stop</strong> ends the session after any bet in the air has settled. Auto Cash Out runs on the game's server, so a bet still cashes out at your multiplier even if your computer or internet stops.</li>
+    <li>If your casino balance is too low for the next bet, {{name}} pauses. Add funds if you choose to and it carries on by itself, within your loss limit. Or press Stop.</li>
+    <li>Closing the control panel quits {{name}} (after any bet in the air settles).</li>
+  </ul>
+
+  <h2 id="subscription">Your subscription</h2>
+  <p>
+    Open <strong>Subscription</strong> in the app, choose a plan, enter your MTN MoMo number and press <strong>Pay with MoMo</strong>.
+    Approve the prompt on your phone with your PIN; the app activates by itself within seconds. If you pay again before
+    your subscription ends, the new days are added on top.
+  </p>
+  <p>
+    A subscription belongs to one computer, identified by the <strong>machine ID</strong> on the Subscription tab. If
+    something went wrong (for example you closed the app before the payment confirmed), press <strong>Restore purchase</strong>.
+  </p>
+
+  <h2 id="moving">Changing computers</h2>
+  <p>
+    Reinstalling {{name}} or Windows on the same computer keeps the same machine ID: install, then press <strong>Restore
+    purchase</strong>. For a different computer, contact us with both machine IDs and your MoMo payment reference and we'll
+    move your remaining time.
+  </p>
+
+  <h2 id="trouble">Troubleshooting</h2>
+  <dl class="settings-list">
+    <dt>"Waiting for Aviator - log in and open the game"</dt>
+    <dd>Log in and open Aviator in the game window. {{name}} finds the game by itself.</dd>
+    <dt>The game window doesn't open</dt>
+    <dd>Install Google Chrome, or choose Microsoft Edge under <em>Help → Settings</em>.</dd>
+    <dt>"Couldn't open the Auto tab" or bets aren't placed</dt>
+    <dd>Reload the game in the game window. If it keeps happening, the casino may have changed the game. Restart {{name}} to get any fixes; if it still fails, contact us.</dd>
+    <dt>I approved the payment but I'm not subscribed</dt>
+    <dd>Wait a minute and press <strong>Restore purchase</strong>. Still nothing? Contact us with your machine ID and the MoMo transaction ID.</dd>
+    <dt>"Your computer's date looks wrong"</dt>
+    <dd>Set Windows to the correct date and time (Settings → Time &amp; language), or connect to the internet, then restart {{name}}.</dd>
+  </dl>
+</article>

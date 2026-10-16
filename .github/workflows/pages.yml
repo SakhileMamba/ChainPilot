@@ -1,0 +1,70 @@
+# Builds and deploys the website to GitHub Pages, including the newest installer from
+# the latest GitHub release (so downloads are served from GitHub Pages too).
+# Runs when the website's sources change, after each release, or by hand.
+# One-time setup: repository Settings > Pages > Source: "GitHub Actions".
+name: Website
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - 'src/strategy.js'
+      - 'src/compounding.js'
+      - 'src/plan.js'
+      - 'src/web/**'
+      - 'desktop/ui/icon.svg'
+      - 'product.config.json'
+      - 'package.json'
+      - 'tools/build-site.js'
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: Get the latest installer
+        id: installer
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p dist/windows
+          if gh release download --repo "$GITHUB_REPOSITORY" --dir dist/windows --pattern '*.exe' --pattern 'latest.json'; then
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::No release yet - the download page will say the first release is coming."
+            echo "found=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Build the website
+        run: |
+          if [ "${{ steps.installer.outputs.found }}" = "true" ]; then
+            node tools/build-site.js --downloads dist/windows
+          else
+            node tools/build-site.js
+          fi
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist/site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

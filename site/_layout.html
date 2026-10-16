@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{page.fullTitle}}</title>
+    <meta name="description" content="{{page.description}}" />
+    <meta http-equiv="Content-Security-Policy" content="{{csp}}" />
+    <meta name="theme-color" content="#0b1020" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{page.fullTitle}}" />
+    <meta property="og:description" content="{{page.description}}" />
+    <meta property="og:image" content="{{absRoot}}assets/og.png" />
+    <link rel="icon" href="{{root}}assets/icon.svg" type="image/svg+xml" />
+    <link rel="icon" href="{{root}}favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="{{root}}assets/icon-180.png" />
+    <link rel="stylesheet" href="{{root}}assets/shared/web/theme.css" />
+    <link rel="stylesheet" href="{{root}}assets/site.css" />
+    {{{page.head}}}
+  </head>
+  <body class="page-{{page.id}}">
+    <a class="skip" href="#content">Skip to content</a>
+    {{> header}}
+    <main id="content">
+{{{content}}}
+    </main>
+    {{> footer}}
+    <script type="module" src="{{root}}assets/site.js"></script>
+    {{{page.scripts}}}
+  </body>
+</html>

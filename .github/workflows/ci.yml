@@ -1,0 +1,26 @@
+# Tests on every push and pull request: unit tests, the website build (templates and
+# links) and the license server bundle.
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - name: Build the website
+        run: node tools/build-site.js
+      - name: Bundle the license server (as wrangler would)
+        run: npx --yes esbuild@0.25.12 server/worker.js --bundle --format=esm --platform=neutral --main-fields=module,main --outfile=dist/worker.js

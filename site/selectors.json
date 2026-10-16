@@ -1,0 +1,9 @@
+{
+  "payload": {
+    "kind": "selectors",
+    "version": 1,
+    "minAppVersion": "1.0.0",
+    "selectors": {}
+  },
+  "sig": "x_zZ5PfpxAUXg99hk-jgKzB1qWAhcReq64tX0kUGwEZS7rpvHkJz2KPwmXnF0ltgJfiOK0I5M9ghpNpgWFfrCg"
+}

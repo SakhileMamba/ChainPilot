@@ -1,0 +1,215 @@
+{
+  "video": "chainpilot-tutorial.mp4",
+  "captions": "chainpilot-tutorial.vtt",
+  "poster": "poster.jpg",
+  "duration": 416.3,
+  "size": 18803644,
+  "voice": "macOS voice Tessa",
+  "generated": "2026-10-16T20:46:52.737Z",
+  "chapters": [
+    {
+      "title": "Welcome",
+      "start": 0
+    },
+    {
+      "title": "Install",
+      "start": 15.5
+    },
+    {
+      "title": "First start",
+      "start": 55.2
+    },
+    {
+      "title": "Your plan",
+      "start": 81.8
+    },
+    {
+      "title": "How compounding works",
+      "start": 173.5
+    },
+    {
+      "title": "Subscribe with MoMo",
+      "start": 289.2
+    },
+    {
+      "title": "Playing a session",
+      "start": 331.2
+    },
+    {
+      "title": "Staying in control",
+      "start": 376.5
+    }
+  ],
+  "transcript": [
+    {
+      "chapter": "Welcome",
+      "start": 0,
+      "text": "Welcome to ChainPilot. In this video you'll see how to install it, set up your plan, subscribe with MTN MoMo, and run a session. You'll also see exactly how the compounding strategy works, and what it can't do."
+    },
+    {
+      "chapter": "Install",
+      "start": 15.5,
+      "text": "Start on the ChainPilot website. Open the download page and get the installer. You need Windows 10 or 11, and Google Chrome or Microsoft Edge, which comes with Windows."
+    },
+    {
+      "chapter": "Install",
+      "start": 27.8,
+      "text": "Because the installer is new, Windows may say it protected your PC. Click More info, then Run anyway. ChainPilot installs for your Windows account only, so it doesn't need administrator rights."
+    },
+    {
+      "chapter": "Install",
+      "start": 41.9,
+      "text": "When setup finishes, open ChainPilot from the Start menu. The control panel opens in its own window, and a small log window starts minimised. Keep it open while ChainPilot runs."
+    },
+    {
+      "chapter": "First start",
+      "start": 55.2,
+      "text": "The first time, ChainPilot asks you to confirm that you are 18 or older, and that you understand what it does. It doesn't predict rounds, and it doesn't change the odds. On average, every bet loses about 3%."
+    },
+    {
+      "chapter": "First start",
+      "start": 70.8,
+      "text": "Accept, and you're in. There are four tabs: Play, How compounding works, Subscription, and Help. The badge on the right shows whether you're subscribed."
+    },
+    {
+      "chapter": "Your plan",
+      "start": 81.8,
+      "text": "Your plan lives on the Play tab. First, choose a mode. A dry run watches real rounds and bets on paper. Practice clicks for real, on the game's play money. Both are free. Live uses real money, and needs a subscription."
+    },
+    {
+      "chapter": "Your plan",
+      "start": 97.7,
+      "text": "The initial bet is what every chain starts with. If a chain is lost, this is exactly what it costs. We'll use ten."
+    },
+    {
+      "chapter": "Your plan",
+      "start": 106.2,
+      "text": "Cash out at is your multiplier. ChainPilot turns on the game's own Auto Cash Out, so the game's server takes the win at exactly this point. There's no click delay."
+    },
+    {
+      "chapter": "Your plan",
+      "start": 117.3,
+      "text": "Wins per chain is where compounding happens. After each win, the whole payout rides on the next round, until this many wins in a row complete the chain."
+    },
+    {
+      "chapter": "Your plan",
+      "start": 127.6,
+      "text": "Then come your limits. Stop after ends the session when you've completed this many chains. The loss limit stops the session before its loss could pass this amount. Set it to money you can afford to lose. We'll use one hundred. And the time limit ends the session after the minutes you choose."
+    },
+    {
+      "chapter": "Your plan",
+      "start": 146.2,
+      "text": "Rounds between bets waits a random number of rounds after each bet. It spreads your bets out over time. It doesn't change the odds."
+    },
+    {
+      "chapter": "Your plan",
+      "start": 155.3,
+      "text": "As you type, \"This plan at a glance\" shows what your settings mean: what a full chain pays, how likely it is, and the average return. With these settings, a full chain turns 10 into 247.60, but only about 1 chain in 29 gets there."
+    },
+    {
+      "chapter": "How compounding works",
+      "start": 173.5,
+      "text": "Here's the idea. You bet 10, cashing out at 1.90×. A win pays 19, and all of it rides on the next round. Then 36.10, 68.59, 130.32. Five wins in a row turn 10 into 247.60."
+    },
+    {
+      "chapter": "How compounding works",
+      "start": 191.7,
+      "text": "But one loss anywhere ends the chain. You lose your ten, because everything above it was the chain's own winnings. Then a new chain starts again from ten."
+    },
+    {
+      "chapter": "How compounding works",
+      "start": 201.8,
+      "text": "The catch is that the chance shrinks as fast as the stake grows. At 1.90×, one bet wins about 51% of the time. Each step needs another win, so five in a row happen only about 3.5% of the time. That's roughly 1 chain in 29."
+    },
+    {
+      "chapter": "How compounding works",
+      "start": 220.9,
+      "text": "And the house edge compounds too. On average the game returns 97% of what's bet. A five-step chain is five bets riding on each other, so it returns about 86% of its first bet. Compounding makes the rare wins bigger. It doesn't change which way the average points."
+    },
+    {
+      "chapter": "How compounding works",
+      "start": 240.6,
+      "text": "You can check all of this with your own numbers, on the How compounding works tab. The story at the top describes your chain, and the tiles show the key odds."
+    },
+    {
+      "chapter": "How compounding works",
+      "start": 251.1,
+      "text": "The ladder shows every step: what you bet, what it pays if it wins, and the chance that the chain gets that far."
+    },
+    {
+      "chapter": "How compounding works",
+      "start": 259.1,
+      "text": "Try a lower multiplier, and fewer steps. Chains now complete far more often, but they pay much less. The average return per bet doesn't change."
+    },
+    {
+      "chapter": "How compounding works",
+      "start": 269.7,
+      "text": "Back on our original plan, ChainPilot simulates 4,000 sessions below. Most sessions end down, usually at the loss limit, and some reach the goal. That's the honest shape of this strategy."
+    },
+    {
+      "chapter": "How compounding works",
+      "start": 283.3,
+      "text": "When you're happy with a plan, press Use these settings, to copy it to the Play tab."
+    },
+    {
+      "chapter": "Subscribe with MoMo",
+      "start": 289.2,
+      "text": "Live betting needs a subscription. Open the Subscription tab. This is your computer's machine ID. Your subscription belongs to this PC."
+    },
+    {
+      "chapter": "Subscribe with MoMo",
+      "start": 299,
+      "text": "Choose a plan, then enter your MTN MoMo number."
+    },
+    {
+      "chapter": "Subscribe with MoMo",
+      "start": 303.4,
+      "text": "Press Pay with MoMo. A payment prompt arrives on your phone. Check the amount, and approve it with your MoMo PIN."
+    },
+    {
+      "chapter": "Subscribe with MoMo",
+      "start": 311.6,
+      "text": "As soon as MoMo confirms, ChainPilot activates by itself. If you renew early, the new days are added to the end of your subscription."
+    },
+    {
+      "chapter": "Subscribe with MoMo",
+      "start": 321.5,
+      "text": "Reinstalled Windows, or closed the app before the payment confirmed? Press Restore purchase. You can also paste a license key here."
+    },
+    {
+      "chapter": "Playing a session",
+      "start": 331.2,
+      "text": "Back on the Play tab, open the game window, and log in to the casino there. ChainPilot remembers your login. Keep that window open and visible while it plays."
+    },
+    {
+      "chapter": "Playing a session",
+      "start": 342.2,
+      "text": "Let's start a dry run. In this video, the rounds are simulated. In real use, ChainPilot plays in the game window, with the game's own Auto Cash Out."
+    },
+    {
+      "chapter": "Playing a session",
+      "start": 353.2,
+      "text": "The session panel shows the running total, how many bets won, completed chains, and the next bet. Every bet is listed below, and saved to a spreadsheet you can open later."
+    },
+    {
+      "chapter": "Playing a session",
+      "start": 365.5,
+      "text": "Press Stop at any time. A bet that's already in the air is allowed to settle first. For live betting, ChainPilot asks you to confirm before it bets real money."
+    },
+    {
+      "chapter": "Staying in control",
+      "start": 376.5,
+      "text": "The Help tab has a quick guide, links to support services, your bet logs, and a check for updates. Fixes for the game page download automatically when ChainPilot starts."
+    },
+    {
+      "chapter": "Staying in control",
+      "start": 388.6,
+      "text": "Before every session, set a loss limit you can afford to lose, and a time limit. Never raise your limit to chase losses. If gambling stops being fun, take a break, and talk to someone."
+    },
+    {
+      "chapter": "Staying in control",
+      "start": 401.7,
+      "text": "That's ChainPilot. Download it for free, try the simulator, a dry run and practice mode, and subscribe with MoMo when you're ready. Thanks for watching, and play responsibly."
+    }
+  ]
+}

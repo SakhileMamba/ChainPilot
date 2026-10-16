@@ -1,0 +1,10 @@
+node_modules/
+.browser-profile/
+logs/
+# Signing key and record of issued licenses: secret, never commit
+keys/
+# Build output and downloaded runtimes
+dist/
+.cache/
+.wrangler/
+.DS_Store
